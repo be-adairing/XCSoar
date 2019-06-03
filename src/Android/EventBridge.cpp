@@ -39,6 +39,9 @@ enum {
   KEYCODE_A = 0x1d,
   KEYCODE_Z = 0x36,
   KEYCODE_ESCAPE = 0x6f,
+  KEY_RETURN = 0x42,
+  KEYCODE_BUTTON_R1 = 0x67,
+  KEYCODE_BUTTON_L1 = 0x66
 };
 
 static constexpr unsigned KEYCODE_DPAD_UP = 0x13;
@@ -47,9 +50,13 @@ static constexpr unsigned KEYCODE_DPAD_DOWN = 0x14;
 static unsigned
 TranslateKeyCode(unsigned key_code)
 {
-  if (key_code == KEYCODE_BACK)
-    /* the "back" key acts as escape */
+  if (key_code == KEYCODE_BACK || key_code == KEYCODE_BUTTON_R1)
+    /* the "back" & R1 key acts as escape */
     return KEYCODE_ESCAPE;
+
+  if (key_code == KEYCODE_BUTTON_L1)
+    /* the L1 key acts as Enter */
+    return KEY_RETURN;
 
   if (key_code >= KEYCODE_0 && key_code <= KEYCODE_9)
     return '0' + (key_code - KEYCODE_0);
