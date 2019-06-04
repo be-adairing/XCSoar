@@ -189,7 +189,7 @@ OUTPUTS := $(XCSOAR_BIN) $(VALI_XCS_BIN)
 endif
 
 ifeq ($(TARGET),ANDROID)
-OUTPUTS += $(ANDROID_BIN)/XCSoar-debug.apk
+OUTPUTS += $(ANDROID_BIN)/XCSoar-debug-pa.apk
 endif
 
 ifeq ($(TARGET_IS_KOBO),y)
